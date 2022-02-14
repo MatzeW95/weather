@@ -1,3 +1,6 @@
+import { apiKey } from "./apiKey.js";
+var key = apiKey.apiKey;
+
 const formCountryZip = document.getElementById("formCountryZip");
 
 formCountryZip.addEventListener("submit", function (e) {
@@ -9,7 +12,7 @@ formCountryZip.addEventListener("submit", function (e) {
     var country = document.getElementById("selectCountry"),
     selectCountryValue = country.value;
 
-    var url = "http://api.openweathermap.org/geo/1.0/zip?zip=" + inputZipCodeValue + "," + selectCountryValue + "&appid=ecbf905015707902c8d1532d644a4ea6"
+    var url = "http://api.openweathermap.org/geo/1.0/zip?zip=" + inputZipCodeValue + "," + selectCountryValue + "&appid=" + key;
 
     fetch(url, {
         method: "get"
@@ -27,7 +30,7 @@ formCountryZip.addEventListener("submit", function (e) {
 
 function zipCountryToWeatherData(lat, lon) {
 
-    url = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=metric&lang=de&appid=ecbf905015707902c8d1532d644a4ea6";
+    var url = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=metric&lang=de&appid=" + key;
 
     fetch(url, {
         method: "get"
