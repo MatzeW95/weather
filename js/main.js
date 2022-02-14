@@ -16,8 +16,26 @@ formCountryZip.addEventListener("submit", function (e) {
     }).then(function (response) {
         return response.text();
     }).then(function (text) {
-        console.log(text);
+
+        var data = JSON.parse(text);
+        zipCountryToWeatherData(data.lat, data.lon);
+
     }).catch(function (error) {
         console.error(error);
     })
-})
+});
+
+function zipCountryToWeatherData(lat, lon) {
+
+    url = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=metric&lang=de&appid=ecbf905015707902c8d1532d644a4ea6";
+
+    fetch(url, {
+        method: "get"
+    }).then(function (response) {
+        return response.text();
+    }).then(function (text) {
+        console.log(text);
+    }).catch(function (error) {
+        console.error(error);
+    }) 
+}
