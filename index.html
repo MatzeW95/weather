@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./style.css">
+
+    <title>Weather | Matthias Wagner</title>
+</head>
+<body>
+    <header>
+        <input type="text" id="inputSearch" placeholder="Ort suchen...">
+    </header>
+    <main>
+        <div id="containerMain">
+            <h1>
+                Aktuelles Wetter
+            </h1>
+            <div id="containerWeather">
+                <div class="containerWeatherData">
+                    <h2>
+                        Heute
+                    </h2>
+                    <p>
+                        Temperatur: <span id="todayTemperatur"></span>
+                    </p>
+                    <p>
+                        Gefühlte Temperatur: <span id="todayFeltTemperatur"></span>
+                    </p>
+                </div>
+                <div class="containerWeatherData">
+                    <h2>
+                        Morgen
+                    </h2>
+                    <p>
+                        Temperatur: <span id="tomorrowTemperatur"></span>
+                    </p>
+                    <p>
+                        Gefühlte Temperatur: <span id="tomorrowFeltTemperatur"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
