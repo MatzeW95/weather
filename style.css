@@ -1,0 +1,55 @@
+:root {
+    --bodyBackgroundColor: #000000;
+    --containerBackgroundColor: #ffffff;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+
+    /* font-family */
+    font-weight: 400;
+    font-size: 18px;
+
+    background-color: var(--bodyBackgroundColor);
+
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+}
+
+#containerMain {
+    width: 60%;
+    margin: 5rem auto 0px;
+    background-color: var(--containerBackgroundColor);
+
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+}
+
+#containerWeather {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.containerWeatherData {
+    width: 40%;
+    padding: 1rem;
+}
+
+.containerWeatherData > h2 {
+    text-align: center;
+}
