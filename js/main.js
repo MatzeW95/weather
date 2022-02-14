@@ -1,5 +1,5 @@
 import { apiKey } from "./apiKey.js";
-var key = apiKey.apiKey;
+const key = apiKey.apiKey;
 
 const formCountryZip = document.getElementById("formCountryZip");
 
