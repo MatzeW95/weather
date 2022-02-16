@@ -9,7 +9,7 @@ body {
 
     /* font-family */
     font-weight: 400;
-    font-size: 18px;
+    font-size: 16px;
 
     background-color: var(--bodyBackgroundColor);
 
@@ -34,28 +34,94 @@ main {
 }
 
 #containerMain {
+    width: 80%;
+    margin: 2rem auto 0px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#containerLeft {
     width: 60%;
-    margin: 5rem auto 0px;
-    background-color: var(--containerBackgroundColor);
-
-    border-radius: 10px;
+    padding: 1rem;
+    background-color: green;
 }
 
-h1 {
-    text-align: center;
+#containerRight {
+    width: 30%;
+    padding: 0 1rem;
+    background-color: red;
+    max-height: 90vh;
+    overflow: scroll;
 }
 
-#containerWeather {
+#btnToday {
+    background-color: red;
+}
+
+#btnTomorrow {
+    background-color: green;
+}
+
+#tabToday {
+    display: block;
+}
+
+#tabTomorrow {
+    display: none;
+}
+
+.containerAccordion {
+    margin-bottom: 1rem;
+}
+
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    border: none;
+    text-align: left;
+    outline: none;
+    transition: 0.4s;
+
+    display: flex;
+    flex-direction: row;
+}
+  
+.active, .accordion:hover {
+    background-color: #ccc;
+}
+  
+.panel {
+    padding: 0;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.containerWeatherData {
-    width: 40%;
-    padding: 1rem;
+.containerPreviewLeft {
+    display: flex;
+    flex-direction: column;
 }
 
-.containerWeatherData > h2 {
-    text-align: center;
+.containerPreviewRight {
+    display: flex;
+    flex-direction: column;
+}
+
+.panelPreviewLeft, .panelPreviewRight {
+    width: 50%;
+}
+
+.panelPreviewLeft > p, .panelPreviewRight > p {
+    padding: 0.5rem;
+    margin: 0;
 }
