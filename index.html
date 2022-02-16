@@ -319,35 +319,251 @@
     </header>
     <main>
         <div id="containerMain">
-            <h1>
-                Aktuelles Wetter
-            </h1>
-            <div id="containerWeather">
-                <div class="containerWeatherData">
-                    <h2>
-                        Heute
-                    </h2>
-                    <p>
-                        Temperatur: <span id="todayTemperatur"></span>
-                    </p>
-                    <p>
-                        Gefühlte Temperatur: <span id="todayFeltTemperatur"></span>
-                    </p>
+            <div id="containerLeft">
+                <button id="btnToday">One</button>
+                <button id="btnTomorrow">Two</button>
+                <div id="tabToday">
+                    testonetest
                 </div>
-                <div class="containerWeatherData">
-                    <h2>
-                        Morgen
-                    </h2>
-                    <p>
-                        Temperatur: <span id="tomorrowTemperatur"></span>
-                    </p>
-                    <p>
-                        Gefühlte Temperatur: <span id="tomorrowFeltTemperatur"></span>
-                    </p>
+                <div id="tabTomorrow">
+                    testtwotest
                 </div>
+            </div>
+            <div id="containerRight">
+                <h2>
+                    7 Tage Vorschau
+                </h2>
+                <div class="containerAccordion">
+                    <div class="accordion">
+                        <div class="containerPreviewLeft">
+                            <div class="previewDate"></div>
+                            <div class="previewText"></div>
+                        </div>
+                        <div class="containerPreviewRight">
+                            <div class="previewMax"></div>
+                            <div class="previewMin"></div>
+                        </div>                    
+                    </div>
+                    <div class="panel">
+                        <div class="panelPreviewLeft">
+                            <p class="panelParagraph">Wind</p>
+                            <p class="panelParagraph">Luftfeuchtigkeit</p>
+                            <p class="panelParagraph">UV-Index</p>
+                            <p class="panelParagraph">Bewölkung</p> 
+                            <p class="panelParagraph">Regen</p>
+                            <p class="panelParagraph">Schnee</p>
+                            <p class="panelParagraph">Sonnenaufgang</p>
+                            <p class="panelParagraph">Sonnenuntergang</p>
+                        </div>
+                        <div class="panelPreviewRight">
+                            <p class="panelParagraphDataWind"></p>
+                            <p class="panelParagraphDataHumidity"></p>
+                            <p class="panelParagraphDataUVI"></p>
+                            <p class="panelParagraphDataCloud"></p> 
+                            <p class="panelParagraphDataRain"></p>
+                            <p class="panelParagraphDataSnow"></p>
+                            <p class="panelParagraphDataSunrise"></p>
+                            <p class="panelParagraphDataSunset"></p>
+                        </div>
+                    </div>
+                    <div class="accordion">
+                        <div class="containerPreviewLeft">
+                            <div class="previewDate"></div>
+                            <div class="previewText"></div>
+                        </div>
+                        <div class="containerPreviewRight">
+                            <div class="previewMax"></div>
+                            <div class="previewMin"></div>
+                        </div>                    
+                    </div>
+                    <div class="panel">
+                        <div class="panelPreviewLeft">
+                            <p class="panelParagraph">Wind</p>
+                            <p class="panelParagraph">Luftfeuchtigkeit</p>
+                            <p class="panelParagraph">UV-Index</p>
+                            <p class="panelParagraph">Bewölkung</p> 
+                            <p class="panelParagraph">Regen</p>
+                            <p class="panelParagraph">Schnee</p>
+                            <p class="panelParagraph">Sonnenaufgang</p>
+                            <p class="panelParagraph">Sonnenuntergang</p>
+                        </div>
+                        <div class="panelPreviewRight">
+                            <p class="panelParagraphDataWind"></p>
+                            <p class="panelParagraphDataHumidity"></p>
+                            <p class="panelParagraphDataUVI"></p>
+                            <p class="panelParagraphDataCloud"></p> 
+                            <p class="panelParagraphDataRain"></p>
+                            <p class="panelParagraphDataSnow"></p>
+                            <p class="panelParagraphDataSunrise"></p>
+                            <p class="panelParagraphDataSunset"></p>
+                        </div>
+                    </div>
+                    <div class="accordion">
+                        <div class="containerPreviewLeft">
+                            <div class="previewDate"></div>
+                            <div class="previewText"></div>
+                        </div>
+                        <div class="containerPreviewRight">
+                            <div class="previewMax"></div>
+                            <div class="previewMin"></div>
+                        </div>                    
+                    </div>
+                    <div class="panel">
+                        <div class="panelPreviewLeft">
+                            <p class="panelParagraph">Wind</p>
+                            <p class="panelParagraph">Luftfeuchtigkeit</p>
+                            <p class="panelParagraph">UV-Index</p>
+                            <p class="panelParagraph">Bewölkung</p> 
+                            <p class="panelParagraph">Regen</p>
+                            <p class="panelParagraph">Schnee</p>
+                            <p class="panelParagraph">Sonnenaufgang</p>
+                            <p class="panelParagraph">Sonnenuntergang</p>
+                        </div>
+                        <div class="panelPreviewRight">
+                            <p class="panelParagraphDataWind"></p>
+                            <p class="panelParagraphDataHumidity"></p>
+                            <p class="panelParagraphDataUVI"></p>
+                            <p class="panelParagraphDataCloud"></p> 
+                            <p class="panelParagraphDataRain"></p>
+                            <p class="panelParagraphDataSnow"></p>
+                            <p class="panelParagraphDataSunrise"></p>
+                            <p class="panelParagraphDataSunset"></p>
+                        </div>
+                    </div>
+                    <div class="accordion">
+                        <div class="containerPreviewLeft">
+                            <div class="previewDate"></div>
+                            <div class="previewText"></div>
+                        </div>
+                        <div class="containerPreviewRight">
+                            <div class="previewMax"></div>
+                            <div class="previewMin"></div>
+                        </div>                    
+                    </div>
+                    <div class="panel">
+                        <div class="panelPreviewLeft">
+                            <p class="panelParagraph">Wind</p>
+                            <p class="panelParagraph">Luftfeuchtigkeit</p>
+                            <p class="panelParagraph">UV-Index</p>
+                            <p class="panelParagraph">Bewölkung</p> 
+                            <p class="panelParagraph">Regen</p>
+                            <p class="panelParagraph">Schnee</p>
+                            <p class="panelParagraph">Sonnenaufgang</p>
+                            <p class="panelParagraph">Sonnenuntergang</p>
+                        </div>
+                        <div class="panelPreviewRight">
+                            <p class="panelParagraphDataWind"></p>
+                            <p class="panelParagraphDataHumidity"></p>
+                            <p class="panelParagraphDataUVI"></p>
+                            <p class="panelParagraphDataCloud"></p> 
+                            <p class="panelParagraphDataRain"></p>
+                            <p class="panelParagraphDataSnow"></p>
+                            <p class="panelParagraphDataSunrise"></p>
+                            <p class="panelParagraphDataSunset"></p>
+                        </div>
+                    </div>
+                    <div class="accordion">
+                        <div class="containerPreviewLeft">
+                            <div class="previewDate"></div>
+                            <div class="previewText"></div>
+                        </div>
+                        <div class="containerPreviewRight">
+                            <div class="previewMax"></div>
+                            <div class="previewMin"></div>
+                        </div>                    
+                    </div>
+                    <div class="panel">
+                        <div class="panelPreviewLeft">
+                            <p class="panelParagraph">Wind</p>
+                            <p class="panelParagraph">Luftfeuchtigkeit</p>
+                            <p class="panelParagraph">UV-Index</p>
+                            <p class="panelParagraph">Bewölkung</p> 
+                            <p class="panelParagraph">Regen</p>
+                            <p class="panelParagraph">Schnee</p>
+                            <p class="panelParagraph">Sonnenaufgang</p>
+                            <p class="panelParagraph">Sonnenuntergang</p>
+                        </div>
+                        <div class="panelPreviewRight">
+                            <p class="panelParagraphDataWind"></p>
+                            <p class="panelParagraphDataHumidity"></p>
+                            <p class="panelParagraphDataUVI"></p>
+                            <p class="panelParagraphDataCloud"></p> 
+                            <p class="panelParagraphDataRain"></p>
+                            <p class="panelParagraphDataSnow"></p>
+                            <p class="panelParagraphDataSunrise"></p>
+                            <p class="panelParagraphDataSunset"></p>
+                        </div>
+                    </div>
+                    <div class="accordion">
+                        <div class="containerPreviewLeft">
+                            <div class="previewDate"></div>
+                            <div class="previewText"></div>
+                        </div>
+                        <div class="containerPreviewRight">
+                            <div class="previewMax"></div>
+                            <div class="previewMin"></div>
+                        </div>                    
+                    </div>
+                    <div class="panel">
+                        <div class="panelPreviewLeft">
+                            <p class="panelParagraph">Wind</p>
+                            <p class="panelParagraph">Luftfeuchtigkeit</p>
+                            <p class="panelParagraph">UV-Index</p>
+                            <p class="panelParagraph">Bewölkung</p> 
+                            <p class="panelParagraph">Regen</p>
+                            <p class="panelParagraph">Schnee</p>
+                            <p class="panelParagraph">Sonnenaufgang</p>
+                            <p class="panelParagraph">Sonnenuntergang</p>
+                        </div>
+                        <div class="panelPreviewRight">
+                            <p class="panelParagraphDataWind"></p>
+                            <p class="panelParagraphDataHumidity"></p>
+                            <p class="panelParagraphDataUVI"></p>
+                            <p class="panelParagraphDataCloud"></p> 
+                            <p class="panelParagraphDataRain"></p>
+                            <p class="panelParagraphDataSnow"></p>
+                            <p class="panelParagraphDataSunrise"></p>
+                            <p class="panelParagraphDataSunset"></p>
+                        </div>
+                    </div>
+                    <div class="accordion">
+                        <div class="containerPreviewLeft">
+                            <div class="previewDate"></div>
+                            <div class="previewText"></div>
+                        </div>
+                        <div class="containerPreviewRight">
+                            <div class="previewMax"></div>
+                            <div class="previewMin"></div>
+                        </div>                    
+                    </div>
+                    <div class="panel">
+                        <div class="panelPreviewLeft">
+                            <p class="panelParagraph">Wind</p>
+                            <p class="panelParagraph">Luftfeuchtigkeit</p>
+                            <p class="panelParagraph">UV-Index</p>
+                            <p class="panelParagraph">Bewölkung</p> 
+                            <p class="panelParagraph">Regen</p>
+                            <p class="panelParagraph">Schnee</p>
+                            <p class="panelParagraph">Sonnenaufgang</p>
+                            <p class="panelParagraph">Sonnenuntergang</p>
+                        </div>
+                        <div class="panelPreviewRight">
+                            <p class="panelParagraphDataWind"></p>
+                            <p class="panelParagraphDataHumidity"></p>
+                            <p class="panelParagraphDataUVI"></p>
+                            <p class="panelParagraphDataCloud"></p> 
+                            <p class="panelParagraphDataRain"></p>
+                            <p class="panelParagraphDataSnow"></p>
+                            <p class="panelParagraphDataSunrise"></p>
+                            <p class="panelParagraphDataSunset"></p>
+                        </div>
+                    </div>
+                </div>              
             </div>
         </div>
     </main>
+    <script src="./js/tab.js"></script>
+    <script src="./js/accordion.js"></script>
     <script type="module" src="./js/main.js"></script>
 </body>
 </html>
