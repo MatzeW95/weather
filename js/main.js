@@ -86,22 +86,47 @@ function showWeatherPreview(json) {
 
     var data = JSON.parse(json);
 
-    document.getElementsByClassName("previewDate")[0].innerHTML = formatDate(data.daily[0].dt);
-    document.getElementsByClassName("previewText")[0].innerHTML = data.daily[0].weather[0].description;
-    document.getElementsByClassName("previewMax")[0].innerHTML = data.daily[0].temp.max;
-    document.getElementsByClassName("previewMin")[0].innerHTML = data.daily[0].temp.min;
+    var previewDays = 7;
+
+    for (let i = 0; i < previewDays; i++) {
+        document.getElementsByClassName("previewDate")[i].innerHTML = formatDate(data.daily[i].dt);
+        document.getElementsByClassName("previewText")[i].innerHTML = data.daily[i].weather[0].description;
+        document.getElementsByClassName("previewMax")[i].innerHTML = data.daily[i].temp.max;
+        document.getElementsByClassName("previewMin")[i].innerHTML = data.daily[i].temp.min;
+    }
+
+    
 }
 
 function showWeatherPanel(json) {
 
     var data = JSON.parse(json);
 
-    document.getElementsByClassName("panelParagraphDataWind")[0].innerHTML = data.daily[0].wind_speed;
-    document.getElementsByClassName("panelParagraphDataHumidity")[0].innerHTML = data.daily[0].humidity;
-    document.getElementsByClassName("panelParagraphDataUVI")[0].innerHTML = data.daily[0].uvi;
-    document.getElementsByClassName("panelParagraphDataCloud")[0].innerHTML = data.daily[0].clouds;
-    document.getElementsByClassName("panelParagraphDataRain")[0].innerHTML = data.daily[0].rain;
-    document.getElementsByClassName("panelParagraphDataSnow")[0].innerHTML = data.daily[0].snow;
-    document.getElementsByClassName("panelParagraphDataSunrise")[0].innerHTML = formatTime(data.daily[0].sunrise);
-    document.getElementsByClassName("panelParagraphDataSunset")[0].innerHTML = formatTime(data.daily[0].sunset);
+    var previewDays = 7;
+
+    for (let i = 0; i < previewDays; i++) {
+        document.getElementsByClassName("panelParagraphDataWind")[i].innerHTML = data.daily[i].wind_speed;
+        document.getElementsByClassName("panelParagraphDataHumidity")[i].innerHTML = data.daily[i].humidity;
+        document.getElementsByClassName("panelParagraphDataUVI")[i].innerHTML = data.daily[i].uvi;
+        document.getElementsByClassName("panelParagraphDataCloud")[i].innerHTML = data.daily[i].clouds;
+
+        if (data.daily[i].rain == undefined) {
+            document.getElementsByClassName("panelPreviewLeft")[i].getElementsByClassName("panelParagraph")[4].style.display = "none";
+            document.getElementsByClassName("panelParagraphDataRain")[i].style.display = "none";
+        }
+        else {
+            document.getElementsByClassName("panelParagraphDataRain")[i].innerHTML = data.daily[i].rain;
+        }
+        
+        if (data.daily[i].snow == undefined) {
+            document.getElementsByClassName("panelPreviewLeft")[i].getElementsByClassName("panelParagraph")[5].style.display = "none";
+            document.getElementsByClassName("panelParagraphDataSnow")[i].style.display = "none";
+        }
+        else {
+            document.getElementsByClassName("panelParagraphDataSnow")[i].innerHTML = data.daily[i].snow;
+        }
+
+        document.getElementsByClassName("panelParagraphDataSunrise")[i].innerHTML = formatTime(data.daily[i].sunrise);
+        document.getElementsByClassName("panelParagraphDataSunset")[i].innerHTML = formatTime(data.daily[i].sunset); 
+    }
 }
