@@ -70,29 +70,118 @@ function formatDateTime (unixTimestamp) {
     return dtFormat.format(new Date(unixTimestamp * 1000));
 }
 
+function windDegrees(degrees) {
+
+    var result = "";
+    
+    if(degrees == 0 || degrees > 337.5 && degrees <= 360) {
+        result = "Nord";
+    }
+    else if(degrees <= 22.5) {
+        result = "Nordnordost";
+    }
+    else if(degrees <= 45) {
+        result = "Nordost";
+    }
+    else if(degrees <= 67.5) {
+        result = "Ostnordost";
+    }
+    else if(degrees <= 90) {
+        result = "Ost";
+    }
+    else if(degrees <= 112.5) {
+        result = "Ostsüdost";
+    }
+    else if(degrees <= 135) {
+        result = "Südost";
+    }
+    else if(degrees <= 157.5) {
+        result = "Südsüdost";
+    }
+    else if(degrees <= 180) {
+        result = "Süd";
+    }
+    else if(degrees <= 202.5) {
+        result = "Südsüdwest";
+    }
+    else if(degrees <= 225) {
+        result = "Südwest";
+    }
+    else if(degrees <= 247.5) {
+        result = "Westsüdwest";
+    }
+    else if(degrees <= 270) {
+        result = "West";
+    }
+    else if(degrees <= 292.5) {
+        result = "Westnordwest";
+    }
+    else if(degrees <= 315) {
+        result = "Nordwest";
+    }
+    else if(degrees <= 337.5) {
+        result = "Nordnordwest";
+    }
+
+    return result;
+}
+
 function showWeather(json) {
     
     var data = JSON.parse(json);
 
-    document.getElementById("mainDescription").innerHTML = data.current.weather[0].description;
-    document.getElementById("mainIcon").innerHTML = data.current.weather[0].icon;
-    document.getElementById("mainTemperatur").innerHTML = data.current.temp;
-    document.getElementById("mainFeelsLikeTempertatur").innerHTML = data.current.feels_like;
-    document.getElementById("mainTemperaturMin").innerHTML = data.daily[0].temp.min;
-    document.getElementById("mainTemperaturMax").innerHTML = data.daily[0].temp.max;
-    document.getElementById("mainPressure").innerHTML = data.current.pressure;
-    document.getElementById("mainHumidity").innerHTML = data.current.humidity;
-    document.getElementById("mainVisibility").innerHTML = data.current.visibility;
-    document.getElementById("mainWindSpeed").innerHTML = data.current.wind_speed;
-    document.getElementById("mainWindDeg").innerHTML = data.current.wind_deg;
-    document.getElementById("mainWindGust").innerHTML = data.current.wind_gust;
-    document.getElementById("mainClouds").innerHTML = data.current.clouds;
     document.getElementById("mainTime").innerHTML = formatDateTime(data.current.dt);
+    
+    document.getElementById("mainTemperaturMax").innerHTML = data.daily[0].temp.max + " °C";
+    document.getElementById("mainTemperaturMin").innerHTML = data.daily[0].temp.min + " °C";
+    
+    document.getElementById("mainTemperatur").innerHTML = data.current.temp;
+    document.getElementById("mainFeelsLikeTempertatur").innerHTML = "Gefühlte Temperatur: " + data.current.feels_like + " °C";
+
+    document.getElementById("mainIcon").innerHTML = data.current.weather[0].icon;
+    document.getElementById("mainDescription").innerHTML = data.current.weather[0].description;
+
+    document.getElementById("mainWindSpeed").innerHTML = Math.round((data.current.wind_speed * 3.6) * 10) / 10  + " km/h";
+    document.getElementById("mainWindDeg").innerHTML = windDegrees(data.current.wind_deg);
+
+    if (data.current.wind_gust == undefined) {
+        document.getElementById("mainWindGust").style.display = "none";
+        document.getElementsByClassName("weatherInfo")[2].style.display = "none";
+    }
+    else {
+        document.getElementById("mainWindGust").innerHTML = Math.round((data.current.wind_gust * 3.6) * 10) / 10  + " km/h";
+        document.getElementById("mainWindGust").style.display = "block"; 
+        document.getElementsByClassName("weatherInfo")[2].style.display = "block";
+    }
+
+    document.getElementById("mainClouds").innerHTML = data.current.clouds + " %";
     document.getElementById("mainSunrise").innerHTML = formatTime(data.current.sunrise);
     document.getElementById("mainSunset").innerHTML = formatTime(data.current.sunset);
-    document.getElementById("mainRain").innerHTML = data.daily[0].rain;
-    document.getElementById("mainSnow").innerHTML = data.daily[0].snow;
+    
+    if (data.daily[0].rain == undefined) {
+        document.getElementById("mainRain").style.display = "none";
+        document.getElementsByClassName("weatherInfo")[6].style.display = "none";
+    }
+    else {
+        document.getElementById("mainRain").innerHTML = data.daily[0].rain + " l/m²";
+        document.getElementById("mainRain").style.display = "block"; 
+        document.getElementsByClassName("weatherInfo")[6].style.display = "block";
+    }
+
+    if (data.daily[0].snow == undefined) {
+        document.getElementById("mainSnow").style.display = "none";
+        document.getElementsByClassName("weatherInfo")[7].style.display = "none";
+    }
+    else {
+        document.getElementById("mainSnow").innerHTML = data.daily[0].snow + " mm";
+        document.getElementById("mainSnow").style.display = "block"; 
+        document.getElementsByClassName("weatherInfo")[7].style.display = "block";
+    }
+    
     document.getElementById("mainUVI").innerHTML = data.daily[0].uvi;
+    document.getElementById("mainVisibility").innerHTML = data.current.visibility / 1000 + " km";
+    document.getElementById("mainHumidity").innerHTML = data.current.humidity  + " %";
+    document.getElementById("mainPressure").innerHTML = data.current.pressure + " hPa"; 
 }
 
 function showWeatherPreview(json) {
