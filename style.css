@@ -20,6 +20,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    background-color: yellow;
 }
 
 input::-webkit-outer-spin-button,
@@ -35,7 +36,8 @@ main {
 
 #containerMain {
     width: 80%;
-    margin: 2rem auto 0px;
+    margin: 10vh auto 0px;
+    overflow: scroll;
 
     display: flex;
     flex-direction: row;
@@ -44,35 +46,37 @@ main {
 }
 
 #containerLeft {
-    width: 60%;
-    padding: 1rem;
+    width: 70%;
     background-color: green;
+    height: 80vh;
 }
 
 #containerRight {
     width: 30%;
     padding: 0 1rem;
-    background-color: red;
-    max-height: 90vh;
+    max-height: 80vh;
     overflow: scroll;
-}
-
-.containerAccordion {
-    margin-bottom: 1rem;
 }
 
 .accordion {
     background-color: #eee;
     color: #444;
     cursor: pointer;
-    padding: 18px;
+    padding: 1rem;
+    margin-top: 1rem;
     border: none;
+    border-radius: 5px;
     text-align: left;
     outline: none;
     transition: 0.4s;
 
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+}
+
+.accordion:first-child {
+    margin-top: 0px;
 }
   
 .active, .accordion:hover {
@@ -83,6 +87,10 @@ main {
     padding: 0;
     background-color: white;
     max-height: 0;
+    width: 90%;
+    margin: 0 auto;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
 
@@ -99,13 +107,53 @@ main {
 .containerPreviewRight {
     display: flex;
     flex-direction: column;
+    text-align: right;
 }
 
-.panelPreviewLeft, .panelPreviewRight {
-    width: 50%;
+.panelPreviewLeft {
+    width: 65%;
 }
 
-.panelPreviewLeft > p, .panelPreviewRight > p {
-    padding: 0.5rem;
+.panelPreviewRight {
+    width: 35%;
+}
+
+.panelPreviewLeft > p {
+    margin: 0px;
+    padding: 0.5rem 0 0.5rem 1rem;
+}
+
+.panelPreviewRight > p {
+    padding: 0.5rem 0;
     margin: 0;
+}
+
+#containerWeatherDataTop {
+    display: flex;
+    flex-direction: column;
+}
+
+#weatherMinMax {
+    display: flex;
+    flex-direction: row;
+}
+
+#containerWeather {
+    display: flex;
+    flex-direction: row;
+}
+
+#containerWeatherLeft, #containerWeatherRight {
+    display: flex;
+    flex-direction: column;
+}
+
+#containerWeatherDataBottom {
+    display: flex;
+    flex-direction: row;
+}
+
+#containerWeatherDataLeft, #containerWeatherDataRight {
+    display: flex;
+    flex-direction: row;
 }
