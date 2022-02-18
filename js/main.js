@@ -78,8 +78,9 @@ function formatTime (unixTimestamp) {
     return dtFormat.format(new Date(unixTimestamp * 1000));
 }
 
-function showWeather() {
-
+function showWeather(json) {
+    
+    var data = JSON.parse(json);
 }
 
 function showWeatherPreview(json) {
@@ -116,6 +117,8 @@ function showWeatherPanel(json) {
         }
         else {
             document.getElementsByClassName("panelParagraphDataRain")[i].innerHTML = data.daily[i].rain;
+            document.getElementsByClassName("panelPreviewLeft")[i].getElementsByClassName("panelParagraph")[4].style.display = "block";
+            document.getElementsByClassName("panelParagraphDataRain")[i].style.display = "block";
         }
         
         if (data.daily[i].snow == undefined) {
@@ -124,6 +127,8 @@ function showWeatherPanel(json) {
         }
         else {
             document.getElementsByClassName("panelParagraphDataSnow")[i].innerHTML = data.daily[i].snow;
+            document.getElementsByClassName("panelPreviewLeft")[i].getElementsByClassName("panelParagraph")[5].style.display = "block";
+            document.getElementsByClassName("panelParagraphDataSnow")[i].style.display = "block";
         }
 
         document.getElementsByClassName("panelParagraphDataSunrise")[i].innerHTML = formatTime(data.daily[i].sunrise);
