@@ -57,22 +57,6 @@ main {
     overflow: scroll;
 }
 
-#btnToday {
-    background-color: red;
-}
-
-#btnTomorrow {
-    background-color: green;
-}
-
-#tabToday {
-    display: block;
-}
-
-#tabTomorrow {
-    display: none;
-}
-
 .containerAccordion {
     margin-bottom: 1rem;
 }
