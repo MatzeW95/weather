@@ -92,8 +92,8 @@ function showWeatherPreview(json) {
     for (let i = 0; i < previewDays; i++) {
         document.getElementsByClassName("previewDate")[i].innerHTML = formatDate(data.daily[i].dt);
         document.getElementsByClassName("previewText")[i].innerHTML = data.daily[i].weather[0].description;
-        document.getElementsByClassName("previewMax")[i].innerHTML = data.daily[i].temp.max;
-        document.getElementsByClassName("previewMin")[i].innerHTML = data.daily[i].temp.min;
+        document.getElementsByClassName("previewMax")[i].innerHTML = Math.round(data.daily[i].temp.max * 10) / 10 + " °C";
+        document.getElementsByClassName("previewMin")[i].innerHTML = Math.round(data.daily[i].temp.min * 10) / 10 + " °C";
     }
 
     
@@ -106,17 +106,17 @@ function showWeatherPanel(json) {
     var previewDays = 7;
 
     for (let i = 0; i < previewDays; i++) {
-        document.getElementsByClassName("panelParagraphDataWind")[i].innerHTML = data.daily[i].wind_speed;
-        document.getElementsByClassName("panelParagraphDataHumidity")[i].innerHTML = data.daily[i].humidity;
+        document.getElementsByClassName("panelParagraphDataWind")[i].innerHTML = Math.round((data.daily[i].wind_speed * 3.6) * 10) / 10  + " km/h";
+        document.getElementsByClassName("panelParagraphDataHumidity")[i].innerHTML = data.daily[i].humidity + " %";
         document.getElementsByClassName("panelParagraphDataUVI")[i].innerHTML = data.daily[i].uvi;
-        document.getElementsByClassName("panelParagraphDataCloud")[i].innerHTML = data.daily[i].clouds;
+        document.getElementsByClassName("panelParagraphDataCloud")[i].innerHTML = data.daily[i].clouds + " %";
 
         if (data.daily[i].rain == undefined) {
             document.getElementsByClassName("panelPreviewLeft")[i].getElementsByClassName("panelParagraph")[4].style.display = "none";
             document.getElementsByClassName("panelParagraphDataRain")[i].style.display = "none";
         }
         else {
-            document.getElementsByClassName("panelParagraphDataRain")[i].innerHTML = data.daily[i].rain;
+            document.getElementsByClassName("panelParagraphDataRain")[i].innerHTML = data.daily[i].rain + " l/m²";
             document.getElementsByClassName("panelPreviewLeft")[i].getElementsByClassName("panelParagraph")[4].style.display = "block";
             document.getElementsByClassName("panelParagraphDataRain")[i].style.display = "block";
         }
@@ -126,7 +126,7 @@ function showWeatherPanel(json) {
             document.getElementsByClassName("panelParagraphDataSnow")[i].style.display = "none";
         }
         else {
-            document.getElementsByClassName("panelParagraphDataSnow")[i].innerHTML = data.daily[i].snow;
+            document.getElementsByClassName("panelParagraphDataSnow")[i].innerHTML = data.daily[i].snow + " mm";
             document.getElementsByClassName("panelPreviewLeft")[i].getElementsByClassName("panelParagraph")[5].style.display = "block";
             document.getElementsByClassName("panelParagraphDataSnow")[i].style.display = "block";
         }
