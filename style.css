@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
 :root {
     --bodyBackgroundColor: #000000;
     --containerBackgroundColor: #ffffff;
@@ -7,14 +9,39 @@ body {
     margin: 0px;
     padding: 0px;
 
-    /* font-family */
+    font-family: "Roboto", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 15px;
 
-    background-color: var(--bodyBackgroundColor);
+    /*background-color: var(--bodyBackgroundColor);*/
 
     box-sizing: border-box;
+
+    background: linear-gradient(145deg, #0080ff, #6db6ff);
+    background-size: 400% 400%;
+
+    -webkit-animation: gradient 20s ease infinite;
+    -moz-animation: gradient 20s ease infinite;
+    animation: gradient 20s ease infinite;
+    height: 100vh;
 }
+
+@-webkit-keyframes gradient {
+    0%{background-position:1% 0%}
+    50%{background-position:99% 100%}
+    100%{background-position:1% 0%}
+}
+@-moz-keyframes gradient {
+    0%{background-position:1% 0%}
+    50%{background-position:99% 100%}
+    100%{background-position:1% 0%}
+}
+@keyframes gradient {
+    0%{background-position:1% 0%}
+    50%{background-position:99% 100%}
+    100%{background-position:1% 0%}
+}
+
 
 #formCountryZip {
     display: flex;
@@ -49,6 +76,8 @@ main {
     width: 70%;
     background-color: green;
     height: 80vh;
+    display: flex;
+    flex-direction: column;
 }
 
 #containerRight {
@@ -59,12 +88,10 @@ main {
 }
 
 .accordion {
-    background-color: #eee;
-    color: #444;
+    color: #ffffff;
     cursor: pointer;
     padding: 1rem;
     margin-top: 1rem;
-    border: none;
     border-radius: 5px;
     text-align: left;
     outline: none;
@@ -73,6 +100,11 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    background: rgba( 255, 255, 255, 0.2 );
+    backdrop-filter: blur( 2.5px );
+    -webkit-backdrop-filter: blur( 2.5px );
+    border: 1px solid rgba( 255, 255, 255, 0.2 );
 }
 
 .accordion:first-child {
@@ -80,12 +112,12 @@ main {
 }
   
 .active, .accordion:hover {
-    background-color: #ccc;
+    background: rgba( 255, 255, 255, 0.4 );
 }
   
 .panel {
     padding: 0;
-    background-color: white;
+    color: #ffffff;
     max-height: 0;
     width: 90%;
     margin: 0 auto;
@@ -97,6 +129,10 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    background: rgba( 255, 255, 255, 0.2 );
+    backdrop-filter: blur( 2.5px );
+    -webkit-backdrop-filter: blur( 2.5px );
 }
 
 .containerPreviewLeft {
@@ -141,6 +177,7 @@ main {
 #containerWeather {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 #containerWeatherLeft, #containerWeatherRight {
@@ -149,11 +186,14 @@ main {
 }
 
 #containerWeatherDataBottom {
+    margin-top: auto;
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
 }
 
 #containerWeatherDataLeft, #containerWeatherDataRight {
     display: flex;
     flex-direction: row;
+    gap: 3rem;
 }
