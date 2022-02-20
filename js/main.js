@@ -73,7 +73,7 @@ function formatDateTime (unixTimestamp) {
 function windDegrees(degrees) {
 
     var result = "";
-    
+
     if(degrees == 0 || degrees > 337.5 && degrees <= 360) {
         result = "Nord";
     }
@@ -126,19 +126,68 @@ function windDegrees(degrees) {
     return result;
 }
 
+function weatherIconSelect(weatherIconId) {
+
+    var icon = "";
+
+    const conditionsClouds = [
+        "02d", "02n", "03d", "03n", "04d", "04n"
+    ]
+
+    const conditionsRain = [
+        "09d", "09n", "10d", "10n"
+    ]
+
+    const conditionsThunder = [
+        "11d", "11n"
+    ]
+
+    const conditionsSnow = [
+        "13d", "13n"
+    ]
+
+    const conditionsFog = [
+        "50d", "50n"
+    ]
+
+    if (weatherIconId == "01d") {
+        icon = "clearDay.svg";
+    }
+    else if (weatherIconId == "01n") {
+        icon = "clearNight.svg";
+    }
+    else if (conditionsClouds.includes(weatherIconId)) {
+        icon = "clouds.svg";
+    }
+    else if (conditionsRain.includes(weatherIconId)) {
+        icon = "rain.svg";
+    }
+    else if (conditionsThunder.includes(weatherIconId)) {
+        icon = "thunder.svg"
+    }
+    else if (conditionsSnow.includes(weatherIconId)) {
+        icon = "snow.svg"
+    }
+    else if (conditionsFog.includes(weatherIconId)) {
+        icon = "fog.svg"
+    }
+
+    return icon;
+}
+
 function showWeather(json) {
     
     var data = JSON.parse(json);
 
     document.getElementById("mainTime").innerHTML = formatDateTime(data.current.dt);
     
-    document.getElementById("mainTemperaturMax").innerHTML = data.daily[0].temp.max + " °C";
-    document.getElementById("mainTemperaturMin").innerHTML = data.daily[0].temp.min + " °C";
+    document.getElementById("mainTemperaturMax").innerHTML = "Max: " + data.daily[0].temp.max + " °C,";
+    document.getElementById("mainTemperaturMin").innerHTML = "Min: " + data.daily[0].temp.min + " °C";
     
-    document.getElementById("mainTemperatur").innerHTML = data.current.temp;
-    document.getElementById("mainFeelsLikeTempertatur").innerHTML = "Gefühlte Temperatur: " + data.current.feels_like + " °C";
+    document.getElementById("mainTemperatur").innerHTML = data.current.temp + " °C";
+    document.getElementById("mainFeelsLikeTempertatur").innerHTML = "Gefühlte Temperatur " + data.current.feels_like + " °C";
 
-    document.getElementById("mainIcon").innerHTML = data.current.weather[0].icon;
+    document.getElementById("mainIcon").src = "./img/svg/" + weatherIconSelect(data.current.weather[0].icon);
     document.getElementById("mainDescription").innerHTML = data.current.weather[0].description;
 
     document.getElementById("mainWindSpeed").innerHTML = Math.round((data.current.wind_speed * 3.6) * 10) / 10  + " km/h";
