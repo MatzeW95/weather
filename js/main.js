@@ -1,6 +1,10 @@
 import { apiKey } from "./apiKey.js";
 const key = apiKey.apiKey;
 
+window.addEventListener("load", function () {
+    getLocationData(11011, "DE"); //Berlin
+});
+
 const formCountryZip = document.getElementById("formCountryZip");
 
 formCountryZip.addEventListener("submit", function (e) {
@@ -12,7 +16,12 @@ formCountryZip.addEventListener("submit", function (e) {
     var country = document.getElementById("selectCountry"),
     selectCountryValue = country.value;
 
-    var url = "http://api.openweathermap.org/geo/1.0/zip?zip=" + inputZipCodeValue + "," + selectCountryValue + "&appid=" + key;
+    getLocationData(inputZipCodeValue, selectCountryValue);
+});
+
+function getLocationData(zip, country) {
+    
+    var url = "http://api.openweathermap.org/geo/1.0/zip?zip=" + zip + "," + country + "&appid=" + key;
 
     fetch(url, {
         method: "get"
@@ -20,13 +29,13 @@ formCountryZip.addEventListener("submit", function (e) {
         return response.text();
     }).then(function (text) {
         var data = JSON.parse(text);
-        zipCountryToWeatherData(data.lat, data.lon);
+        zipCountryToWeatherData(data.lat, data.lon, data.name);
     }).catch(function (error) {
         console.error(error);
     });
-});
+}
 
-function zipCountryToWeatherData(lat, lon) {
+function zipCountryToWeatherData(lat, lon, cityName) {
 
     var url = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,hourly&units=metric&lang=de&appid=" + key;
 
@@ -35,7 +44,7 @@ function zipCountryToWeatherData(lat, lon) {
     }).then(function (response) {
         return response.text();
     }).then(function (text) {
-        showWeather(text);
+        showWeather(text, cityName);
         showWeatherPreview(text);
         showWeatherPanel(text);
     }).catch(function (error) {
@@ -175,11 +184,11 @@ function weatherIconSelect(weatherIconId) {
     return icon;
 }
 
-function showWeather(json) {
+function showWeather(json, cityName) {
     
     var data = JSON.parse(json);
 
-    document.getElementById("mainTime").innerHTML = formatDateTime(data.current.dt);
+    document.getElementById("mainTime").innerHTML = cityName + ", " + formatDateTime(data.current.dt);
     
     document.getElementById("mainTemperaturMax").innerHTML = "Max: " + data.daily[0].temp.max + " °C,";
     document.getElementById("mainTemperaturMin").innerHTML = "Min: " + data.daily[0].temp.min + " °C";
