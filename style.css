@@ -219,6 +219,10 @@ main {
         width: 60%;
     }
 
+    #mainTime {
+        text-align: center;
+    }
+
     #containerLeft {
         width: 100%;
         height: fit-content;
@@ -263,8 +267,13 @@ main {
         margin-top: 1rem;
     }
 
+    #mainTime {
+        text-align: center;
+    }
+
     #containerLeft {
         width: 100%;
+        height: fit-content;
     }
 
     #containerRight {
