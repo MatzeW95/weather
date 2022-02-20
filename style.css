@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
 :root {
-    --bodyBackgroundColor: #000000;
-    --containerBackgroundColor: #ffffff;
+    --fontColor: #ffffff;
 }
 
 body {
@@ -12,8 +11,7 @@ body {
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-size: 15px;
-
-    /*background-color: var(--bodyBackgroundColor);*/
+    color: var(--fontColor);
 
     box-sizing: border-box;
 
@@ -47,7 +45,6 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: yellow;
 }
 
 input::-webkit-outer-spin-button,
@@ -74,10 +71,15 @@ main {
 
 #containerLeft {
     width: 70%;
-    background-color: green;
     height: 80vh;
     display: flex;
     flex-direction: column;
+
+    border-radius: 5px;
+    background: rgba( 255, 255, 255, 0.2 );
+    backdrop-filter: blur( 2.5px );
+    -webkit-backdrop-filter: blur( 2.5px );
+    border: 1px solid rgba( 255, 255, 255, 0.2 );
 }
 
 #containerRight {
@@ -88,7 +90,6 @@ main {
 }
 
 .accordion {
-    color: #ffffff;
     cursor: pointer;
     padding: 1rem;
     margin-top: 1rem;
@@ -117,7 +118,6 @@ main {
   
 .panel {
     padding: 0;
-    color: #ffffff;
     max-height: 0;
     width: 90%;
     margin: 0 auto;
@@ -165,6 +165,7 @@ main {
 }
 
 #containerWeatherDataTop {
+    padding: 0 3rem;
     display: flex;
     flex-direction: column;
 }
@@ -172,6 +173,7 @@ main {
 #weatherMinMax {
     display: flex;
     flex-direction: row;
+    column-gap: 5px;
 }
 
 #containerWeather {
@@ -180,9 +182,28 @@ main {
     justify-content: space-between;
 }
 
+#mainTemperatur {
+    font-size: 3rem;
+    margin: 0px;
+}
+
+#mainDescription {
+    margin-top: 0px;
+}
+
+#mainIcon {
+    color: var(--fontColor);
+    fill: #ffffff;
+}
+
+#containerWeatherRight {
+    align-items: center;
+}
+
 #containerWeatherLeft, #containerWeatherRight {
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
 }
 
 #containerWeatherDataBottom {
