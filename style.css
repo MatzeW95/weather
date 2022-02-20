@@ -2,6 +2,8 @@
 
 :root {
     --fontColor: #ffffff;
+    --backgroundColor: rgba(255, 255, 255, 0.25);
+    --backgroundBlur: blur(2px);
 }
 
 body {
@@ -15,31 +17,13 @@ body {
 
     box-sizing: border-box;
 
-    background: linear-gradient(145deg, #0080ff, #6db6ff);
-    background-size: 400% 400%;
-/*
-    -webkit-animation: gradient 20s ease infinite;
-    -moz-animation: gradient 20s ease infinite;
-    animation: gradient 20s ease infinite;*/
+    background-image: url(./img/background.jpg);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: top;
+
     height: 100vh;
 }
-
-@-webkit-keyframes gradient {
-    0%{background-position:1% 0%}
-    50%{background-position:99% 100%}
-    100%{background-position:1% 0%}
-}
-@-moz-keyframes gradient {
-    0%{background-position:1% 0%}
-    50%{background-position:99% 100%}
-    100%{background-position:1% 0%}
-}
-@keyframes gradient {
-    0%{background-position:1% 0%}
-    50%{background-position:99% 100%}
-    100%{background-position:1% 0%}
-}
-
 
 #formCountryZip {
     display: flex;
@@ -77,10 +61,10 @@ main {
     flex-direction: column;
 
     border-radius: 5px;
-    background: rgba( 255, 255, 255, 0.2 );
-    backdrop-filter: blur( 2.5px );
+    background: var(--backgroundColor);
+    backdrop-filter: var(--backgroundBlur);
     -webkit-backdrop-filter: blur( 2.5px );
-    border: 1px solid rgba( 255, 255, 255, 0.2 );
+    border: 1px solid var(--backgroundBlur);
 }
 
 #containerRight {
@@ -103,10 +87,10 @@ main {
     flex-direction: row;
     justify-content: space-between;
 
-    background: rgba( 255, 255, 255, 0.2 );
-    backdrop-filter: blur( 2.5px );
-    -webkit-backdrop-filter: blur( 2.5px );
-    border: 1px solid rgba( 255, 255, 255, 0.2 );
+    background: var(--backgroundColor);
+    backdrop-filter: var(--backgroundBlur);
+    -webkit-backdrop-filter: var(--backgroundBlur);
+    border: 1px solid var(--backgroundColor);
 }
 
 .accordion:first-child {
@@ -114,7 +98,7 @@ main {
 }
   
 .active, .accordion:hover {
-    background: rgba( 255, 255, 255, 0.4 );
+    background: rgba( 255, 255, 255, 0.5 );
 }
   
 .panel {
@@ -131,9 +115,9 @@ main {
     flex-direction: row;
     justify-content: space-between;
 
-    background: rgba( 255, 255, 255, 0.2 );
-    backdrop-filter: blur( 2.5px );
-    -webkit-backdrop-filter: blur( 2.5px );
+    background: var(--backgroundColor);
+    backdrop-filter: var(--backgroundBlur);
+    -webkit-backdrop-filter: var(--backgroundBlur);
 }
 
 .containerPreviewLeft {
