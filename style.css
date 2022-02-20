@@ -17,10 +17,10 @@ body {
 
     background: linear-gradient(145deg, #0080ff, #6db6ff);
     background-size: 400% 400%;
-
+/*
     -webkit-animation: gradient 20s ease infinite;
     -moz-animation: gradient 20s ease infinite;
-    animation: gradient 20s ease infinite;
+    animation: gradient 20s ease infinite;*/
     height: 100vh;
 }
 
@@ -71,7 +71,8 @@ main {
 
 #containerLeft {
     width: 70%;
-    height: 80vh;
+    overflow: scroll;
+    height: 79.5vh;
     display: flex;
     flex-direction: column;
 
@@ -85,7 +86,7 @@ main {
 #containerRight {
     width: 30%;
     padding: 0 1rem;
-    max-height: 80vh;
+    height: 80vh;
     overflow: scroll;
 }
 
