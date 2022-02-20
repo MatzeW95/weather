@@ -243,6 +243,18 @@ main {
         width: 30vw;
     }
 
+    .weatherRight{
+        width: 17vw;
+    }
+
+    .weatherInfo:first-child, .weatherRight > p:first-child {
+        margin-top: 0px;
+    }
+
+    .weatherInfo:last-child {
+        margin-bottom: 0px;
+    }
+
     #containerWeatherDataLeft, #containerWeatherDataRight {
         justify-content: center;
     }
@@ -257,6 +269,10 @@ main {
 
     #mainIcon {
         width: 50%;
+    }
+
+    #containerWeatherDataBottom {
+        margin-top: 2rem;
     }
 }
 
@@ -291,8 +307,24 @@ main {
         width: 30vw;
     }
 
+    .weatherRight {
+        width: 17vw;
+    }
+
+    .weatherInfo:first-child, .weatherRight > p:first-child {
+        margin-top: 0px;
+    }
+
+    .weatherInfo:last-child {
+        margin-bottom: 0px;
+    }
+
     #containerWeatherDataLeft, #containerWeatherDataRight {
         justify-content: center;
+    }
+
+    #containerWeatherDataBottom {
+        margin-top: 2rem;
     }
 }
 
