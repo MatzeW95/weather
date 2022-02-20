@@ -25,6 +25,10 @@ body {
     height: 100vh;
 }
 
+h2 {
+    margin-bottom: 0px;
+}
+
 #formCountryZip {
     display: flex;
     flex-direction: row;
@@ -202,4 +206,108 @@ main {
     display: flex;
     flex-direction: row;
     gap: 3rem;
+}
+
+@media screen and (max-width: 500px) {
+    #containerMain {
+        width: 96%;
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+
+    #formCountryZip {
+        width: 60%;
+    }
+
+    #containerLeft {
+        width: 100%;
+        height: fit-content;
+    }
+
+    #containerRight {
+        width: 100%;
+        margin: 1rem 0;
+        padding: 0px;
+        height: fit-content;
+    }
+
+    #containerWeatherDataBottom {
+        flex-direction: column;
+    }
+
+    .weatherLeft {
+        width: 30vw;
+    }
+
+    #containerWeatherDataLeft, #containerWeatherDataRight {
+        justify-content: center;
+    }
+
+    #containerWeather {
+        flex-direction: column-reverse;
+    }
+
+    #containerWeatherLeft {
+        align-items: center;
+    }
+
+    #mainIcon {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #containerMain {
+        width: 96%;
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+
+    #containerLeft {
+        width: 100%;
+    }
+
+    #containerRight {
+        width: 100%;
+        margin: 1rem 0;
+        padding: 0px;
+        height: fit-content;
+    }
+
+    #containerWeatherDataBottom {
+        flex-direction: column;
+    }
+
+    .weatherLeft {
+        width: 30vw;
+    }
+
+    #containerWeatherDataLeft, #containerWeatherDataRight {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #containerMain {
+        width: 96%;
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+
+    #containerLeft {
+        width: 100%;
+    }
+
+    #containerRight {
+        width: 100%;
+        margin: 1rem 0;
+        padding: 0px;
+        height: fit-content;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    #containerMain {
+        width: 96%;
+    }
 }
