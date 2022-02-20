@@ -3,4 +3,3 @@
 *.xd
 **/.DS_Store
 .prettierignore
-apiKey.js
