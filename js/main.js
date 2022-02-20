@@ -21,7 +21,7 @@ formCountryZip.addEventListener("submit", function (e) {
 
 function getLocationData(zip, country) {
     
-    var url = "http://api.openweathermap.org/geo/1.0/zip?zip=" + zip + "," + country + "&appid=" + key;
+    var url = "https://api.openweathermap.org/geo/1.0/zip?zip=" + zip + "," + country + "&appid=" + key;
 
     fetch(url, {
         method: "get"
