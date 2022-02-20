@@ -45,7 +45,7 @@ function zipCountryToWeatherData(lat, lon) {
 
 function formatDate (unixTimestamp) {
 
-    const options = {weekday: "long", day: "numeric", month: "long"};
+    const options = {weekday: "short", day: "numeric", month: "long"};
 
     const dtFormat = new Intl.DateTimeFormat("de-DE", options);
 
@@ -244,7 +244,7 @@ function showWeatherPreview(json) {
 
         j = i + 1;
 
-        document.getElementsByClassName("previewDate")[i].innerHTML = formatDate(data.daily[j].dt);
+        document.getElementsByClassName("previewDate")[i].innerHTML = formatDate(data.daily[j].dt).replace(",","");
         document.getElementsByClassName("previewText")[i].innerHTML = data.daily[j].weather[0].description;
         document.getElementsByClassName("previewMax")[i].innerHTML = Math.round(data.daily[j].temp.max * 10) / 10 + " °C";
         document.getElementsByClassName("previewMin")[i].innerHTML = Math.round(data.daily[j].temp.min * 10) / 10 + " °C";
