@@ -183,6 +183,7 @@ main {
 #mainIcon {
     color: var(--fontColor);
     fill: #ffffff;
+    width: 150px;
 }
 
 #containerWeatherRight {
@@ -244,7 +245,7 @@ main {
     }
 
     .weatherRight{
-        width: 17vw;
+        width: 22vw;
     }
 
     .weatherInfo:first-child, .weatherRight > p:first-child {
@@ -265,10 +266,6 @@ main {
 
     #containerWeatherLeft {
         align-items: center;
-    }
-
-    #mainIcon {
-        width: 50%;
     }
 
     #containerWeatherDataBottom {
@@ -308,7 +305,7 @@ main {
     }
 
     .weatherRight {
-        width: 17vw;
+        width: 22vw;
     }
 
     .weatherInfo:first-child, .weatherRight > p:first-child {
@@ -350,5 +347,21 @@ main {
 @media screen and (max-width: 1050px) {
     #containerMain {
         width: 96%;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    #containerWeatherDataLeft, #containerWeatherDataRight {
+        justify-content: space-between;
+        padding: 0 1rem;
+        gap: 0px;
+    }
+
+    .weatherLeft, .weatherRight {
+        width: fit-content;
+    }
+
+    #containerWeatherDataTop {
+        padding: 0;
     }
 }
