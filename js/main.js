@@ -48,8 +48,6 @@ function getLocationData(zip, country) {
 
     if (zip != "") {
 
-        document.getElementById("inputZipCode").style.border = "1px solid #ffffff";
-
         var url = "https://api.openweathermap.org/geo/1.0/zip?zip=" + zip + "," + country + "&appid=" + key;
 
         fetch(url, {
@@ -58,7 +56,15 @@ function getLocationData(zip, country) {
             return response.text();
         }).then(function (text) {
             var data = JSON.parse(text);
-            zipCountryToWeatherData(data.lat, data.lon, data.name);
+
+            if(data.cod == "404") {
+                document.getElementById("inputZipCode").style.border = "1px solid red";
+            }
+            else {
+                document.getElementById("inputZipCode").style.border = "1px solid #ffffff";
+
+                zipCountryToWeatherData(data.lat, data.lon, data.name);
+            }
         }).catch(function (error) {
             console.error(error);
         });
