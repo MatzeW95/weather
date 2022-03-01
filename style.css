@@ -297,11 +297,7 @@ main {
         width: 22vw;
     }
 
-    .weatherInfo:first-child, .weatherRight > p:first-child {
-        margin-top: 0px;
-    }
-
-    .weatherInfo:last-child {
+    .weatherInfo:last-child, #mainSunset {
         margin-bottom: 0px;
     }
 
@@ -389,10 +385,6 @@ main {
 
     .weatherRight {
         width: 22vw;
-    }
-
-    .weatherInfo:first-child, .weatherRight > p:first-child {
-        margin-top: 0px;
     }
 
     .weatherInfo:last-child, #mainSunset {
