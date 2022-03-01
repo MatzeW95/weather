@@ -3,12 +3,12 @@ const key = apiKey.apiKey;
 
 window.addEventListener("load", function () {
     
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(getUserPlz);
-    } 
-    else { 
-        getLocationData(11011, "DE"); //Berlin
-    }
+    getLocationData(11011, "DE"); //Berlin
+});
+
+document.getElementById("buttonGetLocation").addEventListener("click", function() {
+
+    navigator.geolocation.getCurrentPosition(getUserPlz);
 });
 
 function getUserPlz(position) {
