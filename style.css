@@ -117,7 +117,7 @@ main {
     background: var(--backgroundColor);
     backdrop-filter: var(--backgroundBlur);
     -webkit-backdrop-filter: blur( 2.5px );
-    border: 1px solid var(--backgroundBlur);
+    border: 1px solid var(--backgroundColor);
 }
 
 #containerRight {
