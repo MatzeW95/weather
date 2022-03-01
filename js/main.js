@@ -20,19 +20,27 @@ formCountryZip.addEventListener("submit", function (e) {
 });
 
 function getLocationData(zip, country) {
-    
-    var url = "https://api.openweathermap.org/geo/1.0/zip?zip=" + zip + "," + country + "&appid=" + key;
 
-    fetch(url, {
-        method: "get"
-    }).then(function (response) {
-        return response.text();
-    }).then(function (text) {
-        var data = JSON.parse(text);
-        zipCountryToWeatherData(data.lat, data.lon, data.name);
-    }).catch(function (error) {
-        console.error(error);
-    });
+    if (zip != "") {
+
+        document.getElementById("inputZipCode").style.border = "1px solid #ffffff";
+
+        var url = "https://api.openweathermap.org/geo/1.0/zip?zip=" + zip + "," + country + "&appid=" + key;
+
+        fetch(url, {
+            method: "get"
+        }).then(function (response) {
+            return response.text();
+        }).then(function (text) {
+            var data = JSON.parse(text);
+            zipCountryToWeatherData(data.lat, data.lon, data.name);
+        }).catch(function (error) {
+            console.error(error);
+        });
+    }
+    else {
+        document.getElementById("inputZipCode").style.border = "1px solid red";
+    }
 }
 
 function zipCountryToWeatherData(lat, lon, cityName) {
