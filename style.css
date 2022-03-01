@@ -395,7 +395,7 @@ main {
         margin-top: 0px;
     }
 
-    .weatherInfo:last-child {
+    .weatherInfo:last-child, #mainSunset {
         margin-bottom: 0px;
     }
 
