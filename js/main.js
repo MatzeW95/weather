@@ -2,8 +2,33 @@ import { apiKey } from "./apiKey.js";
 const key = apiKey.apiKey;
 
 window.addEventListener("load", function () {
-    getLocationData(11011, "DE"); //Berlin
+    
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(getUserPlz);
+    } 
+    else { 
+        getLocationData(11011, "DE"); //Berlin
+    }
 });
+
+function getUserPlz(position) {
+
+    var lat = position.coords.latitude;
+    var lon = position.coords.longitude;
+
+    var url = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + key;
+
+    fetch(url, {
+        method: "get"
+    }).then(function (response) {
+        return response.text();
+    }).then(function (text) {
+        var data = JSON.parse(text);
+        zipCountryToWeatherData(lat, lon, data.name);
+    }).catch(function (error) {
+        console.error(error);
+    });
+}
 
 const formCountryZip = document.getElementById("formCountryZip");
 
