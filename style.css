@@ -39,7 +39,7 @@ h2 {
     border: 1px solid var(--fontColor);
     background-color: var(--fontColor);
     margin-top: 0.5rem;
-    height: 1.5rem;
+    height: 30px;
     border-radius: 5px;
     padding-left: 0.5rem;
     outline: 0px;
@@ -61,7 +61,7 @@ h2 {
     width: 50%;
 }
 
-#buttonSubmit {
+#buttonSubmit, #buttonGetLocation {
     border: 1px solid var(--fontColor);
     background-color: var(--fontColor);
     margin-top: 0.5rem;
@@ -71,6 +71,17 @@ h2 {
     font-family: "Roboto", sans-serif;
     font-size: 15px;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 12px;
+}
+
+#buttonGetLocation {
+    margin-left: 0.5rem;
+    padding: 0px 0.2rem 0;
+}
+
+#imgLocation {
+    height: 25px;
+    margin: 3px 0px 0px;
+    padding: 0px;
 }
 
 input::-webkit-outer-spin-button,
@@ -329,7 +340,7 @@ main {
 
     #formCountryZip {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(7, 1fr);
         grid-template-rows: repeat(2, 1fr);
         grid-column-gap: 1rem;
         grid-row-gap: 0.5rem;
@@ -338,19 +349,25 @@ main {
     }
     
     #inputZipCode {
-        grid-area: 2 / 1 / 3 / 2;
+        grid-area: 2 / 1 / 3 / 4;
         width: auto;
         margin: 0px;
     }
     
     #selectCountry {
-        grid-area: 1 / 1 / 2 / 3;
+        grid-area: 1 / 1 / 2 / 8;
         width: 100%;
         margin: 0px;
     }
     
     #buttonSubmit {
-        grid-area: 2 / 2 / 3 / 3; 
+        grid-area: 2 / 4 / 3 / 7;
+        width: auto;
+        margin: 0px;
+    }
+
+    #buttonGetLocation {
+        grid-area: 2 / 7 / 3 / 8; 
         width: auto;
         margin: 0px;
     }
